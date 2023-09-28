@@ -36,6 +36,12 @@ html, body {
   -webkit-text-size-adjust: none; /* Never autoresize text */
 }
 
+@import url("https://fonts.googleapis.com/css?family=Poppins");html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // TABLE OF CONTENTS
 ////////////////////////////////////////////////////////////////////////////////
@@ -74,8 +80,11 @@ html, body {
   // This is the logo at the top of the ToC
   .logo {
     display: block;
-    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: $logo-margin;
     margin-bottom: $logo-margin;
+    width: 50%;
   }
 
   &>.search {
