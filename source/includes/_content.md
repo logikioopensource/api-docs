@@ -222,7 +222,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get a Blueprint
@@ -418,7 +418,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Update a Blueprint
@@ -744,7 +744,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Delete a Blueprint
@@ -892,7 +892,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-blueprint-details">Blueprint > Details</h1>
@@ -1128,7 +1128,7 @@ Returns a list of Available Fields that can be associated with the blueprint
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get Enrichment Scripts
@@ -1310,7 +1310,7 @@ Get Enrichment Scripts for a Blueprint
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Create an Enrichment Script
@@ -1496,6 +1496,9 @@ func main() {
 |Parameter|Value|
 |---|---|
 |scriptType|INIT|
+|scriptType|PRODUCT|
+|scriptType|PRICING|
+|scriptType|VALIDATION|
 
 > Example responses
 
@@ -1548,7 +1551,7 @@ Status Code **201**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-blueprint-related">Blueprint > Related</h1>
@@ -1798,7 +1801,7 @@ Get Fields related to a Blueprint
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get Related Configurable Products
@@ -2008,7 +2011,7 @@ Get Configurable Products related to a Blueprint
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get Related Sets
@@ -2277,7 +2280,7 @@ Get Sets related to a Blueprint
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get Related Product Pickers
@@ -2753,7 +2756,7 @@ Get Product Pickers related to a Blueprint
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get Related Rules
@@ -3006,7 +3009,7 @@ Get Rules related to a Blueprint
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-blueprint-deployments">Blueprint > Deployments</h1>
@@ -3219,7 +3222,7 @@ Get Blueprint Deployment History
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Deploy a Blueprint
@@ -3439,7 +3442,7 @@ Status Code **201**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-blueprint-export">Blueprint > Export</h1>
@@ -3646,7 +3649,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-blueprint-layouts">Blueprint > Layouts</h1>
@@ -3861,7 +3864,7 @@ Retrieves a list of all Layouts that are associated with the Blueprint
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get a Layout
@@ -4159,293 +4162,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
-</aside>
-
-## Get Layout Fields
-
-<a id="opIdgetBlueprintLayoutFields"></a>
-
-> Code samples
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer {access-token}'
-}
-
-r = requests.get('https://{tenant}.{sector}.logik.io/api/admin/v1/blueprints/{blueprintName}/layoutFields', params={
-  'size': '100',  'page': '0'
-}, headers = headers)
-
-print(r.json())
-
-```
-
-```javascript
-
-const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer {access-token}'
-};
-
-fetch('https://{tenant}.{sector}.logik.io/api/admin/v1/blueprints/{blueprintName}/layoutFields?size=100&page=0',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer {access-token}'
-};
-
-fetch('https://{tenant}.{sector}.logik.io/api/admin/v1/blueprints/{blueprintName}/layoutFields?size=100&page=0',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```shell
-# You can also use wget
-curl -X GET https://{tenant}.{sector}.logik.io/api/admin/v1/blueprints/{blueprintName}/layoutFields?size=100&page=0 \
-  -H 'Accept: application/json' \
-  -H 'Authorization: Bearer {access-token}'
-
-```
-
-```http
-GET https://{tenant}.{sector}.logik.io/api/admin/v1/blueprints/{blueprintName}/layoutFields?size=100&page=0 HTTP/1.1
-
-Accept: application/json
-
-```
-
-```java
-URL obj = new URL("https://{tenant}.{sector}.logik.io/api/admin/v1/blueprints/{blueprintName}/layoutFields?size=100&page=0");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json',
-  'Authorization' => 'Bearer {access-token}'
-}
-
-result = RestClient.get 'https://{tenant}.{sector}.logik.io/api/admin/v1/blueprints/{blueprintName}/layoutFields',
-  params: {
-  'size' => 'number',
-'page' => 'number'
-}, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"application/json"},
-        "Authorization": []string{"Bearer {access-token}"},
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://{tenant}.{sector}.logik.io/api/admin/v1/blueprints/{blueprintName}/layoutFields", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-`GET /api/admin/v1/blueprints/{blueprintName}/layoutFields`
-
-<h3 id="get-layout-fields-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|blueprintName|path|string|true|Blueprint variable name|
-|size|query|number|true|Number of results to return|
-|page|query|number|true|Page number of results to return|
-
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "content": [
-    {
-      "type": "Text",
-      "created": "2000-01-01T00:00:00Z",
-      "modified": "2000-01-01T00:00:00Z",
-      "id": 1,
-      "name": "Product Description (System)",
-      "variableName": "sys.productDescription",
-      "description": "System Field for the description of the Configured Product",
-      "required": false,
-      "category": "SYSTEM",
-      "lastModifiedBy": null,
-      "defaultValue": null,
-      "minLength": null,
-      "maxLength": null
-    },
-    {
-      "type": "Text",
-      "created": "2000-01-01T00:00:00Z",
-      "modified": "2000-01-01T00:00:00Z",
-      "id": 2,
-      "name": "Product Id (System)",
-      "variableName": "sys.productId",
-      "description": "System Field for the Id of the Configured Product",
-      "required": false,
-      "category": "SYSTEM",
-      "lastModifiedBy": null,
-      "defaultValue": null,
-      "minLength": null,
-      "maxLength": null
-    },
-    {
-      "type": "Text",
-      "created": "2000-01-01T00:00:00Z",
-      "modified": "2000-01-01T00:00:00Z",
-      "id": 3,
-      "name": "Product Name (System)",
-      "variableName": "sys.productName",
-      "description": "System Field for the Name of the Configured Product",
-      "required": false,
-      "category": "SYSTEM",
-      "lastModifiedBy": null,
-      "defaultValue": null,
-      "minLength": null,
-      "maxLength": null
-    }
-  ],
-  "pageable": {
-    "sort": {
-      "empty": true,
-      "unsorted": true,
-      "sorted": false
-    },
-    "offset": 0,
-    "pageNumber": 0,
-    "pageSize": 500,
-    "paged": true,
-    "unpaged": false
-  },
-  "totalPages": 1,
-  "last": true,
-  "totalElements": 33,
-  "size": 500,
-  "number": 0,
-  "sort": {
-    "empty": true,
-    "unsorted": true,
-    "sorted": false
-  },
-  "numberOfElements": 33,
-  "first": true,
-  "empty": false
-}
-```
-
-<h3 id="get-layout-fields-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
-
-<h3 id="get-layout-fields-responseschema">Response Schema</h3>
-
-Status Code **200**
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» content|[object]|false|none|none|
-|»» type|string|true|none|none|
-|»» created|string|true|none|none|
-|»» modified|string|true|none|none|
-|»» id|number|true|none|none|
-|»» name|string|true|none|none|
-|»» variableName|string|true|none|none|
-|»» description|string|true|none|none|
-|»» required|boolean|true|none|none|
-|»» category|string|true|none|none|
-|»» lastModifiedBy|string|true|none|none|
-|»» defaultValue|string|true|none|none|
-|»» minLength|string|true|none|none|
-|»» maxLength|string|true|none|none|
-|» pageable|object|false|none|none|
-|»» sort|object|false|none|none|
-|»»» empty|boolean|false|none|none|
-|»»» unsorted|boolean|false|none|none|
-|»»» sorted|boolean|false|none|none|
-|»» offset|number|false|none|none|
-|»» pageNumber|number|false|none|none|
-|»» pageSize|number|false|none|none|
-|»» paged|boolean|false|none|none|
-|»» unpaged|boolean|false|none|none|
-|» totalPages|number|false|none|none|
-|» last|boolean|false|none|none|
-|» totalElements|number|false|none|none|
-|» size|number|false|none|none|
-|» number|number|false|none|none|
-|» sort|object|false|none|none|
-|»» empty|boolean|false|none|none|
-|»» unsorted|boolean|false|none|none|
-|»» sorted|boolean|false|none|none|
-|» numberOfElements|number|false|none|none|
-|» first|boolean|false|none|none|
-|» empty|boolean|false|none|none|
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-configurable-products">Configurable Products</h1>
@@ -4664,7 +4381,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get a Configurable Product
@@ -4854,7 +4571,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Update a Configurable Product
@@ -5060,7 +4777,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-fields">Fields</h1>
@@ -5340,7 +5057,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Create a Field
@@ -5568,7 +5285,7 @@ Status Code **201**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Bulk Delete Fields
@@ -5782,7 +5499,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get a Field
@@ -5980,7 +5697,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Update a Field
@@ -6247,7 +5964,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-fields-picklist">Fields > Picklist</h1>
@@ -6748,7 +6465,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get Picklist Field options
@@ -6996,7 +6713,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Create Picklist Field options
@@ -7226,7 +6943,7 @@ Status Code **201**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-fields-related">Fields > Related</h1>
@@ -7451,7 +7168,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get Related Blueprints
@@ -7672,7 +7389,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get Related Configurable Products
@@ -7874,7 +7591,7 @@ Get Configurable Products related to a Field
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-set">Set</h1>
@@ -8275,7 +7992,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Create a Set Field
@@ -8567,7 +8284,7 @@ Status Code **201**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get a Set Field
@@ -8811,7 +8528,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Update a Set field
@@ -9155,7 +8872,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Delete a Set Field
@@ -9334,7 +9051,7 @@ Status Code **422**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get Associated Fields
@@ -9544,7 +9261,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-set-aggregates">Set > Aggregates</h1>
@@ -9808,7 +9525,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Create an Aggregate Field on a Set
@@ -10063,7 +9780,7 @@ Status Code **201**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-product-pickers">Product Pickers</h1>
@@ -10325,7 +10042,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Create a Product Picker Field
@@ -10578,7 +10295,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get a Product Picker
@@ -10918,7 +10635,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Update a Product Picker
@@ -11645,7 +11362,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Delete a Product Picker
@@ -11824,7 +11541,7 @@ Status Code **422**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-product-pickers-options">Product Pickers > Options</h1>
@@ -12061,7 +11778,7 @@ Retrieve list of options for a Product Picker field
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Create Product Picker Options
@@ -12324,7 +12041,7 @@ Add options to Product Picker
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-product-pickers-aggregates">Product Pickers > Aggregates</h1>
@@ -12538,7 +12255,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Create Aggregate Field
@@ -12797,7 +12514,7 @@ Status Code **201**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-product-pickers-bulk-actions">Product Pickers > Bulk Actions</h1>
@@ -13007,7 +12724,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get List of Bulk Actions
@@ -13305,7 +13022,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get a Bulk Action
@@ -13512,7 +13229,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Update a Bulk Action
@@ -13787,7 +13504,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Export a Bulk Action
@@ -13987,7 +13704,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-product-pickers-bulk-action-data">Product Pickers > Bulk Action Data</h1>
@@ -14198,7 +13915,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get Bulk Action Data
@@ -14438,7 +14155,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Create Bulk Action Data
@@ -14654,7 +14371,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Export Bulk Action Data
@@ -14849,7 +14566,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-rules">Rules</h1>
@@ -15103,7 +14820,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Create a Rule
@@ -15357,7 +15074,7 @@ Status Code **201**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get a Rule
@@ -15537,7 +15254,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Update a Rule
@@ -16205,7 +15922,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Bulk Delete Rules
@@ -16415,7 +16132,210 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
+</aside>
+
+## Clone Rule
+
+> Code samples
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {access-token}'
+}
+
+r = requests.post('https://{tenant}.{sector}.logik.io/api/admin/v1/rules/{ruleName}/saveAs', headers = headers)
+
+print(r.json())
+
+```
+
+```javascript
+const inputBody = '{
+  "name": "string",
+  "variableName": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'Authorization':'Bearer {access-token}'
+};
+
+fetch('https://{tenant}.{sector}.logik.io/api/admin/v1/rules/{ruleName}/saveAs',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = {
+  "name": "string",
+  "variableName": "string"
+};
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'Authorization':'Bearer {access-token}'
+};
+
+fetch('https://{tenant}.{sector}.logik.io/api/admin/v1/rules/{ruleName}/saveAs',
+{
+  method: 'POST',
+  body: JSON.stringify(inputBody),
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```shell
+# You can also use wget
+curl -X POST https://{tenant}.{sector}.logik.io/api/admin/v1/rules/{ruleName}/saveAs \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer {access-token}'
+
+```
+
+```http
+POST https://{tenant}.{sector}.logik.io/api/admin/v1/rules/{ruleName}/saveAs HTTP/1.1
+
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```java
+URL obj = new URL("https://{tenant}.{sector}.logik.io/api/admin/v1/rules/{ruleName}/saveAs");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer {access-token}'
+}
+
+result = RestClient.post 'https://{tenant}.{sector}.logik.io/api/admin/v1/rules/{ruleName}/saveAs',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer {access-token}"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://{tenant}.{sector}.logik.io/api/admin/v1/rules/{ruleName}/saveAs", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /api/admin/v1/rules/{ruleName}/saveAs`
+
+Make a copy of the rule (from the path parameter) and related conditions and actions.
+
+> Body parameter
+
+```json
+{
+  "name": "string",
+  "variableName": "string"
+}
+```
+
+<h3 id="clone-rule-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|ruleName|path|string|true|Rule Variable Name|
+|body|body|object|true|none|
+|» name|body|string|false|none|
+|» variableName|body|string|false|none|
+
+> Example responses
+
+> 201 Response
+
+```json
+{
+  "name": "advHierarchyQtyScale_2",
+  "variableName": "advHierarchyQtyScale_2",
+  "id": 12
+}
+```
+
+<h3 id="clone-rule-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|Inline|
+
+<h3 id="clone-rule-responseschema">Response Schema</h3>
+
+Status Code **201**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» name|string|false|none|none|
+|» variableName|string|false|none|none|
+|» id|integer|false|none|none|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-rules-related">Rules > Related</h1>
@@ -16641,7 +16561,7 @@ Get Fields related to the Rule
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get Related Blueprints
@@ -16841,7 +16761,7 @@ Get Blueprints related to the rule
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get Related Configurable Products
@@ -17041,7 +16961,7 @@ Get Configurable Products related to the rule
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-managed-tables">Managed Tables</h1>
@@ -17306,7 +17226,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Create a new Table
@@ -17560,7 +17480,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get Table Data and Metadata
@@ -17791,7 +17711,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Delete Table
@@ -17982,7 +17902,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-managed-tables-metadata">Managed Tables > Metadata</h1>
@@ -18197,7 +18117,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Update Table Metadata
@@ -18440,7 +18360,7 @@ Add / Remove Table Metadata Column(s)
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Delete Table Metadata
@@ -18632,7 +18552,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-managed-tables-table-rows">Managed Tables > Table Rows</h1>
@@ -18879,7 +18799,7 @@ Add new row(s) to Table
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get Table Data Row
@@ -19082,7 +19002,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Update Table Data Row
@@ -19318,7 +19238,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Delete Table Data Row
@@ -19510,7 +19430,7 @@ func main() {
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-managed-tables-import">Managed Tables > Import</h1>
@@ -19747,7 +19667,7 @@ jobType: TABLE_IMPORT
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Replace Table Data
@@ -19982,7 +19902,7 @@ jobType: TABLE_IMPORT
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-managed-tables-export">Managed Tables > Export</h1>
@@ -20211,7 +20131,7 @@ Start an Export Table Data Job
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Get Job Status
@@ -20416,7 +20336,7 @@ Get Managed Table Job Status
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Download Table Export
@@ -20611,7 +20531,7 @@ Download Managed Table export file from a successfully completed job.
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-matrix-loader">Matrix Loader</h1>
@@ -20808,7 +20728,7 @@ file: string
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-matrix-loader-managed-tables">Matrix Loader > Managed Tables</h1>
@@ -21015,7 +20935,7 @@ Status Code **202**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 <h1 id="logik-io-admin-api-blueprints-jobs">Jobs</h1>
@@ -21201,7 +21121,7 @@ Retrieve details of a job by providing its Id.
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 ## Download Bulk Export
@@ -21369,7 +21289,7 @@ Retrieve a bulk export file by providing the corresponding job Id.
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
+AdminApiBearerToken
 </aside>
 
 # Schemas
@@ -25458,3 +25378,3006 @@ and
 |»» warning|integer|false|none|none|
 |»» total|integer|false|none|none|
 |» messages|[any]|false|none|none|
+
+<h2 id="tocS_ErrorResponse">ErrorResponse</h2>
+<!-- backwards compatibility -->
+<a id="schemaerrorresponse"></a>
+<a id="schema_ErrorResponse"></a>
+<a id="tocSerrorresponse"></a>
+<a id="tocserrorresponse"></a>
+
+```json
+{
+  "errorMessage": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|errorMessage|string|false|none|none|
+
+<h2 id="tocS_FieldPayload">FieldPayload</h2>
+<!-- backwards compatibility -->
+<a id="schemafieldpayload"></a>
+<a id="schema_FieldPayload"></a>
+<a id="tocSfieldpayload"></a>
+<a id="tocsfieldpayload"></a>
+
+```json
+{
+  "variableName": "string",
+  "value": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|variableName|string|false|none|none|
+|value|string|false|none|none|
+
+<h2 id="tocS_UpdateConfig">UpdateConfig</h2>
+<!-- backwards compatibility -->
+<a id="schemaupdateconfig"></a>
+<a id="schema_UpdateConfig"></a>
+<a id="tocSupdateconfig"></a>
+<a id="tocsupdateconfig"></a>
+
+```json
+{
+  "fields": [
+    {
+      "variableName": "string",
+      "value": "string"
+    }
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|fields|[[FieldPayload](#schemafieldpayload)]|false|none|none|
+
+<h2 id="tocS_InitConfig">InitConfig</h2>
+<!-- backwards compatibility -->
+<a id="schemainitconfig"></a>
+<a id="schema_InitConfig"></a>
+<a id="tocSinitconfig"></a>
+<a id="tocsinitconfig"></a>
+
+```json
+{
+  "sessionContext": {
+    "stateful": true
+  },
+  "partnerData": {
+    "product": {
+      "configuredProductId": "string",
+      "configurationAttributes": {
+        "LGK__ConfigurationId__c": "string"
+      }
+    }
+  },
+  "quote": {
+    "SBQQ__PricebookId__c": "string"
+  },
+  "fields": [
+    {
+      "variableName": "string",
+      "value": "string"
+    }
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|sessionContext|object|false|none|none|
+|» stateful|boolean|false|none|none|
+|partnerData|object|false|none|none|
+|» product|object|true|none|none|
+|»» configuredProductId|string|false|none|Product id of the Product linked to Logik Blueprint|
+|»» configurationAttributes|object|false|none|none|
+|»»» LGK__ConfigurationId__c|string|false|none|Configuration Id which was generated for saved configuration|
+|quote|object|false|none|none|
+|» SBQQ__PricebookId__c|string|false|none|none|
+|fields|[[FieldPayload](#schemafieldpayload)]|false|none|none|
+
+<h2 id="tocS_BOMResponse">BOMResponse</h2>
+<!-- backwards compatibility -->
+<a id="schemabomresponse"></a>
+<a id="schema_BOMResponse"></a>
+<a id="tocSbomresponse"></a>
+<a id="tocsbomresponse"></a>
+
+```json
+{
+  "products": [
+    {
+      "id": "string",
+      "selectionType": "string",
+      "quantity": 0,
+      "bomType": "string",
+      "level": 0,
+      "parentProduct": 0,
+      "notes": "string",
+      "uniqueIdentifier": 0,
+      "description": "string",
+      "externalId": "string",
+      "name": "string",
+      "price": 0,
+      "extPrice": 0
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "empty": true,
+      "sorted": true,
+      "unsorted": true
+    },
+    "offset": 0,
+    "pageNumber": 0,
+    "pageSize": 0,
+    "paged": true,
+    "unpaged": true
+  },
+  "totalPages": 0,
+  "totalElements": 0,
+  "last": true,
+  "size": 0,
+  "number": 0,
+  "numberOfElements": 0,
+  "first": true,
+  "empty": true,
+  "total": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|products|[[Product](#schemaproduct)]|false|none|none|
+|pageable|object|false|none|none|
+|» sort|object|false|none|none|
+|»» empty|boolean|false|none|none|
+|»» sorted|boolean|false|none|none|
+|»» unsorted|boolean|false|none|none|
+|» offset|integer|false|none|none|
+|» pageNumber|integer|false|none|none|
+|» pageSize|integer|false|none|none|
+|» paged|boolean|false|none|none|
+|» unpaged|boolean|false|none|none|
+|totalPages|integer|false|none|none|
+|totalElements|integer|false|none|none|
+|last|boolean|false|none|none|
+|size|integer|false|none|none|
+|number|integer|false|none|none|
+|numberOfElements|integer|false|none|none|
+|first|boolean|false|none|none|
+|empty|boolean|false|none|none|
+|total|integer|false|none|none|
+
+<h2 id="tocS_Product">Product</h2>
+<!-- backwards compatibility -->
+<a id="schemaproduct"></a>
+<a id="schema_Product"></a>
+<a id="tocSproduct"></a>
+<a id="tocsproduct"></a>
+
+```json
+{
+  "id": "string",
+  "selectionType": "string",
+  "quantity": 0,
+  "bomType": "string",
+  "level": 0,
+  "parentProduct": 0,
+  "notes": "string",
+  "uniqueIdentifier": 0,
+  "description": "string",
+  "externalId": "string",
+  "name": "string",
+  "price": 0,
+  "extPrice": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|id|string|false|none|none|
+|selectionType|string|false|none|none|
+|quantity|integer|false|none|none|
+|bomType|string|false|none|none|
+|level|integer|false|none|none|
+|parentProduct|integer|false|none|none|
+|notes|string|false|none|none|
+|uniqueIdentifier|integer|false|none|none|
+|description|string|false|none|none|
+|externalId|string|false|none|none|
+|name|string|false|none|none|
+|price|number|false|none|none|
+|extPrice|number|false|none|none|
+
+<h2 id="tocS_Field">Field</h2>
+<!-- backwards compatibility -->
+<a id="schemafield"></a>
+<a id="schema_Field"></a>
+<a id="tocSfield"></a>
+<a id="tocsfield"></a>
+
+```json
+{
+  "value": "string",
+  "dataType": "string",
+  "visibilityState": "string",
+  "editable": "string",
+  "variableName": "string",
+  "optionSet": {
+    "options": [
+      {
+        "label": "string",
+        "state": "string",
+        "value": "string",
+        "imageUrl": "string",
+        "orderNumber": 0
+      }
+    ]
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|value|string|false|none|none|
+|dataType|string|false|none|none|
+|visibilityState|string|false|none|none|
+|editable|string|false|none|none|
+|variableName|string|false|none|none|
+|optionSet|object|false|none|none|
+|» options|[object]|true|none|none|
+|»» label|string|true|none|none|
+|»» state|string|true|none|none|
+|»» value|string|true|none|none|
+|»» imageUrl|string|false|none|none|
+|»» orderNumber|integer|true|none|none|
+
+<h2 id="tocS_Message">Message</h2>
+<!-- backwards compatibility -->
+<a id="schemamessage"></a>
+<a id="schema_Message"></a>
+<a id="tocSmessage"></a>
+<a id="tocsmessage"></a>
+
+```json
+{
+  "message": "string",
+  "type": "string",
+  "error": true,
+  "field": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|message|string|true|none|none|
+|type|string|true|none|none|
+|error|boolean|true|none|none|
+|field|string|true|none|none|
+
+<h2 id="tocS_ConfigResponse">ConfigResponse</h2>
+<!-- backwards compatibility -->
+<a id="schemaconfigresponse"></a>
+<a id="schema_ConfigResponse"></a>
+<a id="tocSconfigresponse"></a>
+<a id="tocsconfigresponse"></a>
+
+```json
+{
+  "fields": [
+    {
+      "value": "string",
+      "dataType": "string",
+      "visibilityState": "string",
+      "editable": "string",
+      "variableName": "string",
+      "optionSet": {
+        "options": [
+          {
+            "label": "string",
+            "state": "string",
+            "value": "string",
+            "imageUrl": "string",
+            "orderNumber": 0
+          }
+        ]
+      }
+    }
+  ],
+  "uuid": "string",
+  "revision": 0,
+  "valid": true,
+  "messages": [
+    {
+      "message": "string",
+      "type": "string",
+      "error": true,
+      "field": "string"
+    }
+  ],
+  "productChange": true,
+  "products": [
+    {
+      "id": "string",
+      "selectionType": "string",
+      "quantity": 0,
+      "bomType": "string",
+      "level": 0,
+      "parentProduct": 0,
+      "notes": "string",
+      "uniqueIdentifier": 0,
+      "description": "string",
+      "externalId": "string",
+      "name": "string",
+      "price": 0,
+      "extPrice": 0
+    }
+  ],
+  "layouts": [
+    {
+      "url": "string"
+    }
+  ],
+  "relatedChanges": [
+    {
+      "key": "string",
+      "type": "string"
+    }
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|fields|[[Field](#schemafield)]|false|none|none|
+|uuid|string|false|none|none|
+|revision|integer|false|none|none|
+|valid|boolean|false|none|none|
+|messages|[[Message](#schemamessage)]|false|none|none|
+|productChange|boolean|false|none|none|
+|products|[[Product](#schemaproduct)]|false|none|none|
+|layouts|[object]|false|none|none|
+|» url|string|true|none|none|
+|relatedChanges|[[relatedChangesValue](#schemarelatedchangesvalue)]|false|none|none|
+
+<h2 id="tocS_relatedChangesValue">relatedChangesValue</h2>
+<!-- backwards compatibility -->
+<a id="schemarelatedchangesvalue"></a>
+<a id="schema_relatedChangesValue"></a>
+<a id="tocSrelatedchangesvalue"></a>
+<a id="tocsrelatedchangesvalue"></a>
+
+```json
+{
+  "key": "string",
+  "type": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|key|string|false|none|none|
+|type|string|false|none|Value of SET|PRODUCT which will return KEY value as variable name of set or static value products|
+
+<h2 id="tocS_SetsContent">SetsContent</h2>
+<!-- backwards compatibility -->
+<a id="schemasetscontent"></a>
+<a id="schema_SetsContent"></a>
+<a id="tocSsetscontent"></a>
+<a id="tocssetscontent"></a>
+
+```json
+{
+  "index": 0,
+  "fields": [
+    {
+      "value": "string",
+      "dataType": "string",
+      "visibilityState": "string",
+      "editable": "string",
+      "variableName": "string",
+      "optionSet": {
+        "options": [
+          {
+            "label": "string",
+            "state": "string",
+            "value": "string",
+            "imageUrl": "string",
+            "orderNumber": 0
+          }
+        ]
+      }
+    }
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|index|integer|false|none|none|
+|fields|[[Field](#schemafield)]|false|none|none|
+
+<h2 id="tocS_SetsResponse">SetsResponse</h2>
+<!-- backwards compatibility -->
+<a id="schemasetsresponse"></a>
+<a id="schema_SetsResponse"></a>
+<a id="tocSsetsresponse"></a>
+<a id="tocssetsresponse"></a>
+
+```json
+{
+  "content": [
+    {
+      "index": 0,
+      "fields": [
+        {
+          "value": "string",
+          "dataType": "string",
+          "visibilityState": "string",
+          "editable": "string",
+          "variableName": "string",
+          "optionSet": {
+            "options": [
+              {
+                "label": "string",
+                "state": "string",
+                "value": "string",
+                "imageUrl": "string",
+                "orderNumber": 0
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "empty": true,
+      "sorted": true,
+      "unsorted": true
+    },
+    "offset": 0,
+    "pageNumber": 0,
+    "pageSize": 0,
+    "paged": true,
+    "unpaged": true
+  },
+  "totalPages": 0,
+  "totalElements": 0,
+  "last": true,
+  "size": 0,
+  "number": 0,
+  "numberOfElements": 0,
+  "first": true,
+  "empty": true,
+  "total": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|content|[[SetsContent](#schemasetscontent)]|false|none|none|
+|pageable|object|false|none|none|
+|» sort|object|false|none|none|
+|»» empty|boolean|false|none|none|
+|»» sorted|boolean|false|none|none|
+|»» unsorted|boolean|false|none|none|
+|» offset|integer|false|none|none|
+|» pageNumber|integer|false|none|none|
+|» pageSize|integer|false|none|none|
+|» paged|boolean|false|none|none|
+|» unpaged|boolean|false|none|none|
+|totalPages|integer|false|none|none|
+|totalElements|integer|false|none|none|
+|last|boolean|false|none|none|
+|size|integer|false|none|none|
+|number|integer|false|none|none|
+|numberOfElements|integer|false|none|none|
+|first|boolean|false|none|none|
+|empty|boolean|false|none|none|
+|total|integer|false|none|none|
+
+<h2 id="tocS_UpdateConfigV2">UpdateConfigV2</h2>
+<!-- backwards compatibility -->
+<a id="schemaupdateconfigv2"></a>
+<a id="schema_UpdateConfigV2"></a>
+<a id="tocSupdateconfigv2"></a>
+<a id="tocsupdateconfigv2"></a>
+
+```json
+{
+  "fields": [
+    {
+      "variableName": "cpuPicker.select",
+      "uniqueName": "cpuPicker-1003-cpuPicker.select",
+      "value": true,
+      "set": "cpuPicker",
+      "index": 3
+    }
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|fields|[object]|false|none|none|
+|» variableName|string|false|none|none|
+|» value|boolean|false|none|none|
+|» index|number|false|none|none|
+|» set|string|false|none|none|
+|» uniqueName|string|false|none|none|
+|responseState|object|false|none|none|
+|» setPagination|object|false|none|none|
+|»» additionalProperties|object|false|none|none|
+|»»» pageSize|number|true|none|none|
+|»»» pageNumber|number|true|none|none|
+|» defaultPagination|object|false|none|none|
+|»» pageSize|number|true|none|none|
+|»» pageNumber|number|true|none|none|
+
+<h2 id="tocS_InitConfigV2">InitConfigV2</h2>
+<!-- backwards compatibility -->
+<a id="schemainitconfigv2"></a>
+<a id="schema_InitConfigV2"></a>
+<a id="tocSinitconfigv2"></a>
+<a id="tocsinitconfigv2"></a>
+
+```json
+{
+  "sessionContext": {
+    "stateful": true
+  },
+  "productId": "01t6e000009bOeLAAU"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|sessionContext|object|false|none|none|
+|» stateful|boolean|true|none|none|
+|partnerData|object|false|none|none|
+|» quote|object|false|none|none|
+|»» SBQQ__PricebookId__c|string|false|none|none|
+|»» LGK__QueriedEditAccess__c|string|false|none|none|
+|» product|object|false|none|none|
+|»» configuredProductId|string|false|none|none|
+|»» configurationAttributes|object|false|none|none|
+|»»» LGK__Logik_Id__c|string|false|none|none|
+|configurableProduct|object|false|none|none|
+|» responseState|object|false|none|none|
+|»» defaultPagination|object|true|none|none|
+|»»» pageSize|number|true|none|none|
+|»»» pageNumber|number|true|none|none|
+|productId|string|false|none|none|
+
+<h2 id="tocS_BOMResponse">BOMResponse</h2>
+<!-- backwards compatibility -->
+<a id="schemabomresponse"></a>
+<a id="schema_BOMResponse"></a>
+<a id="tocSbomresponse"></a>
+<a id="tocsbomresponse"></a>
+
+```json
+{
+  "total": 350,
+  "pageable": {
+    "sort": {
+      "empty": false,
+      "sorted": true,
+      "unsorted": false
+    },
+    "offset": 0,
+    "pageNumber": 0,
+    "pageSize": 20,
+    "paged": true,
+    "unpaged": false
+  },
+  "totalPages": 1,
+  "totalElements": 2,
+  "last": true,
+  "size": 20,
+  "number": 0,
+  "sort": {
+    "empty": false,
+    "sorted": true,
+    "unsorted": false
+  },
+  "numberOfElements": 2,
+  "first": true,
+  "empty": false,
+  "products": [
+    {
+      "id": "SSM",
+      "uom": "",
+      "name": "Single Motherboard",
+      "type": "accessory",
+      "level": 0,
+      "price": 125,
+      "bomType": "Sales",
+      "extPrice": 125,
+      "quantity": 1,
+      "partnerId": "01t6e000009gRTpAAM",
+      "externalId": "",
+      "description": "",
+      "orderNumber": 10,
+      "productCode": "SSM",
+      "rollUpPrice": 350,
+      "productFamily": "",
+      "uniqueIdentifier": "motherboard"
+    },
+    {
+      "id": "CPU7320GHZRYZ3",
+      "uom": "",
+      "name": "AMD Ryzen 3 7320U",
+      "type": "accessory",
+      "level": 1,
+      "price": 225,
+      "bomType": "SALES",
+      "extPrice": 225,
+      "extended": {
+        "watts": "150"
+      },
+      "quantity": 1,
+      "partnerId": "01t6e000009bOfYAAU",
+      "externalId": "",
+      "description": "",
+      "productCode": "CPU7320GHZRYZ3",
+      "rollUpPrice": 225,
+      "parentProduct": "motherboard",
+      "productFamily": "Hardware",
+      "effectiveParent": "motherboard"
+    }
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|products|[[Product](#schemaproduct)]|false|none|none|
+|pageable|object|false|none|none|
+|» sort|object|false|none|none|
+|»» empty|boolean|false|none|none|
+|»» sorted|boolean|false|none|none|
+|»» unsorted|boolean|false|none|none|
+|» offset|integer|false|none|none|
+|» pageNumber|integer|false|none|none|
+|» pageSize|integer|false|none|none|
+|» paged|boolean|false|none|none|
+|» unpaged|boolean|false|none|none|
+|totalPages|integer|false|none|none|
+|totalElements|integer|false|none|none|
+|last|boolean|false|none|none|
+|size|integer|false|none|none|
+|number|integer|false|none|none|
+|numberOfElements|integer|false|none|none|
+|first|boolean|false|none|none|
+|empty|boolean|false|none|none|
+|total|integer|false|none|none|
+
+<h2 id="tocS_Product">Product</h2>
+<!-- backwards compatibility -->
+<a id="schemaproduct"></a>
+<a id="schema_Product"></a>
+<a id="tocSproduct"></a>
+<a id="tocsproduct"></a>
+
+```json
+{
+  "id": "string",
+  "selectionType": "string",
+  "quantity": 0,
+  "bomType": "string",
+  "level": 0,
+  "parentProduct": 0,
+  "notes": "string",
+  "uniqueIdentifier": 0,
+  "description": "string",
+  "externalId": "string",
+  "name": "string",
+  "price": 0,
+  "extPrice": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|id|string|false|none|none|
+|selectionType|string|false|none|none|
+|quantity|integer|false|none|none|
+|bomType|string|false|none|none|
+|level|integer|false|none|none|
+|parentProduct|integer|false|none|none|
+|notes|string|false|none|none|
+|uniqueIdentifier|integer|false|none|none|
+|description|string|false|none|none|
+|externalId|string|false|none|none|
+|name|string|false|none|none|
+|price|number|false|none|none|
+|extPrice|number|false|none|none|
+
+<h2 id="tocS_Field">Field</h2>
+<!-- backwards compatibility -->
+<a id="schemafield"></a>
+<a id="schema_Field"></a>
+<a id="tocSfield"></a>
+<a id="tocsfield"></a>
+
+```json
+{
+  "value": "string",
+  "dataType": "string",
+  "visibilityState": "string",
+  "editable": "string",
+  "variableName": "string",
+  "optionSet": {
+    "options": [
+      {
+        "label": "string",
+        "state": "string",
+        "value": "string",
+        "imageUrl": "string",
+        "orderNumber": 0
+      }
+    ]
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|value|string|false|none|none|
+|dataType|string|false|none|none|
+|visibilityState|string|false|none|none|
+|editable|string|false|none|none|
+|variableName|string|false|none|none|
+|optionSet|object|false|none|none|
+|» options|[object]|true|none|none|
+|»» label|string|true|none|none|
+|»» state|string|true|none|none|
+|»» value|string|true|none|none|
+|»» imageUrl|string|false|none|none|
+|»» orderNumber|integer|true|none|none|
+
+<h2 id="tocS_Message">Message</h2>
+<!-- backwards compatibility -->
+<a id="schemamessage"></a>
+<a id="schema_Message"></a>
+<a id="tocSmessage"></a>
+<a id="tocsmessage"></a>
+
+```json
+{
+  "message": "string",
+  "type": "string",
+  "error": true,
+  "field": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|message|string|true|none|none|
+|type|string|true|none|none|
+|error|boolean|true|none|none|
+|field|string|true|none|none|
+
+<h2 id="tocS_relatedChangesValue">relatedChangesValue</h2>
+<!-- backwards compatibility -->
+<a id="schemarelatedchangesvalue"></a>
+<a id="schema_relatedChangesValue"></a>
+<a id="tocSrelatedchangesvalue"></a>
+<a id="tocsrelatedchangesvalue"></a>
+
+```json
+{
+  "key": "string",
+  "type": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|key|string|false|none|none|
+|type|string|false|none|Value of SET|PRODUCT which will return KEY value as variable name of set or static value products|
+
+<h2 id="tocS_SetsContent">SetsContent</h2>
+<!-- backwards compatibility -->
+<a id="schemasetscontent"></a>
+<a id="schema_SetsContent"></a>
+<a id="tocSsetscontent"></a>
+<a id="tocssetscontent"></a>
+
+```json
+{
+  "index": 0,
+  "fields": [
+    {
+      "value": "string",
+      "dataType": "string",
+      "visibilityState": "string",
+      "editable": "string",
+      "variableName": "string",
+      "optionSet": {
+        "options": [
+          {
+            "label": "string",
+            "state": "string",
+            "value": "string",
+            "imageUrl": "string",
+            "orderNumber": 0
+          }
+        ]
+      }
+    }
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|index|integer|false|none|none|
+|fields|[[Field](#schemafield)]|false|none|none|
+
+<h2 id="tocS_SetsResponse">SetsResponse</h2>
+<!-- backwards compatibility -->
+<a id="schemasetsresponse"></a>
+<a id="schema_SetsResponse"></a>
+<a id="tocSsetsresponse"></a>
+<a id="tocssetsresponse"></a>
+
+```json
+{
+  "content": [
+    {
+      "index": 0,
+      "fields": [
+        {
+          "value": "string",
+          "dataType": "string",
+          "visibilityState": "string",
+          "editable": "string",
+          "variableName": "string",
+          "optionSet": {
+            "options": [
+              {
+                "label": "string",
+                "state": "string",
+                "value": "string",
+                "imageUrl": "string",
+                "orderNumber": 0
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "empty": true,
+      "sorted": true,
+      "unsorted": true
+    },
+    "offset": 0,
+    "pageNumber": 0,
+    "pageSize": 0,
+    "paged": true,
+    "unpaged": true
+  },
+  "totalPages": 0,
+  "totalElements": 0,
+  "last": true,
+  "size": 0,
+  "number": 0,
+  "numberOfElements": 0,
+  "first": true,
+  "empty": true,
+  "total": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|content|[[SetsContent](#schemasetscontent)]|false|none|none|
+|pageable|object|false|none|none|
+|» sort|object|false|none|none|
+|»» empty|boolean|false|none|none|
+|»» sorted|boolean|false|none|none|
+|»» unsorted|boolean|false|none|none|
+|» offset|integer|false|none|none|
+|» pageNumber|integer|false|none|none|
+|» pageSize|integer|false|none|none|
+|» paged|boolean|false|none|none|
+|» unpaged|boolean|false|none|none|
+|totalPages|integer|false|none|none|
+|totalElements|integer|false|none|none|
+|last|boolean|false|none|none|
+|size|integer|false|none|none|
+|number|integer|false|none|none|
+|numberOfElements|integer|false|none|none|
+|first|boolean|false|none|none|
+|empty|boolean|false|none|none|
+|total|integer|false|none|none|
+
+<h2 id="tocS_ConfigResponseV2">ConfigResponseV2</h2>
+<!-- backwards compatibility -->
+<a id="schemaconfigresponsev2"></a>
+<a id="schema_ConfigResponseV2"></a>
+<a id="tocSconfigresponsev2"></a>
+<a id="tocsconfigresponsev2"></a>
+
+```json
+{
+  "fields": [
+    {
+      "userEdited": false,
+      "dataType": "array",
+      "visibilityState": "visible",
+      "editable": "true",
+      "variableName": "ramPicker",
+      "uniqueName": "ramPicker",
+      "value": [],
+      "optionSet": {
+        "options": [
+          {
+            "label": "8GB RAM Module",
+            "state": "visible",
+            "value": "RAM8GB",
+            "imageUrl": "https://i.imgur.com/WkXo98I.png",
+            "orderNumber": 10
+          },
+          {
+            "label": "16GB RAM Module",
+            "state": "visible",
+            "value": "RAM16GB",
+            "imageUrl": "https://i.imgur.com/WkXo98I.png",
+            "orderNumber": 20
+          },
+          {
+            "label": "32GB RAM Module",
+            "state": "visible",
+            "value": "RAM32GB",
+            "imageUrl": "https://i.imgur.com/WkXo98I.png",
+            "orderNumber": 30
+          }
+        ]
+      },
+      "selectAll": "NONE",
+      "rows": {
+        "content": [
+          {
+            "index": 0,
+            "fields": [
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "false",
+                "variableName": "ramPicker.value",
+                "uniqueName": "ramPicker-1000-ramPicker.value",
+                "value": "RAM8GB",
+                "set": "ramPicker",
+                "index": 0
+              },
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "ramPicker.interface",
+                "uniqueName": "ramPicker-1000-ramPicker.interface",
+                "value": "DDR4",
+                "optionSet": {
+                  "selectedOptions": [
+                    {
+                      "label": "DDR4",
+                      "state": "visible",
+                      "value": "DDR4",
+                      "imageUrl": null,
+                      "orderNumber": 10
+                    }
+                  ],
+                  "options": [
+                    {
+                      "label": "DDR4",
+                      "state": "visible",
+                      "value": "DDR4",
+                      "imageUrl": null,
+                      "orderNumber": 10
+                    },
+                    {
+                      "label": "DDR5",
+                      "state": "visible",
+                      "value": "DDR5",
+                      "imageUrl": null,
+                      "orderNumber": 20
+                    }
+                  ]
+                },
+                "set": "ramPicker",
+                "index": 0
+              },
+              {
+                "userEdited": false,
+                "dataType": "boolean",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "ramPicker.select",
+                "uniqueName": "ramPicker-1000-ramPicker.select",
+                "value": false,
+                "optionSet": {
+                  "options": [
+                    {
+                      "label": "true",
+                      "state": "visible",
+                      "value": "true",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    },
+                    {
+                      "label": "false",
+                      "state": "visible",
+                      "value": "false",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    }
+                  ]
+                },
+                "set": "ramPicker",
+                "index": 0
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "ramPicker.quantity",
+                "uniqueName": "ramPicker-1000-ramPicker.quantity",
+                "value": 0,
+                "step": 1,
+                "set": "ramPicker",
+                "index": 0
+              },
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "ramPicker.imageUrl",
+                "uniqueName": "ramPicker-1000-ramPicker.imageUrl",
+                "value": "",
+                "set": "ramPicker",
+                "index": 0
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "false",
+                "variableName": "ramPicker.storage",
+                "uniqueName": "ramPicker-1000-ramPicker.storage",
+                "value": 0,
+                "set": "ramPicker",
+                "index": 0
+              }
+            ],
+            "label": "8GB RAM Module",
+            "state": "visible",
+            "value": "RAM8GB",
+            "imageUrl": "https://i.imgur.com/WkXo98I.png",
+            "orderNumber": 10,
+            "productDetails": {
+              "price": 50,
+              "name": "RAM 8GB"
+            }
+          },
+          {
+            "index": 1,
+            "fields": [
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "false",
+                "variableName": "ramPicker.value",
+                "uniqueName": "ramPicker-1001-ramPicker.value",
+                "value": "RAM16GB",
+                "set": "ramPicker",
+                "index": 1
+              },
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "ramPicker.interface",
+                "uniqueName": "ramPicker-1001-ramPicker.interface",
+                "value": "DDR4",
+                "optionSet": {
+                  "selectedOptions": [
+                    {
+                      "label": "DDR4",
+                      "state": "visible",
+                      "value": "DDR4",
+                      "imageUrl": null,
+                      "orderNumber": 10
+                    }
+                  ],
+                  "options": [
+                    {
+                      "label": "DDR4",
+                      "state": "visible",
+                      "value": "DDR4",
+                      "imageUrl": null,
+                      "orderNumber": 10
+                    },
+                    {
+                      "label": "DDR5",
+                      "state": "visible",
+                      "value": "DDR5",
+                      "imageUrl": null,
+                      "orderNumber": 20
+                    }
+                  ]
+                },
+                "set": "ramPicker",
+                "index": 1
+              },
+              {
+                "userEdited": false,
+                "dataType": "boolean",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "ramPicker.select",
+                "uniqueName": "ramPicker-1001-ramPicker.select",
+                "value": false,
+                "optionSet": {
+                  "options": [
+                    {
+                      "label": "true",
+                      "state": "visible",
+                      "value": "true",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    },
+                    {
+                      "label": "false",
+                      "state": "visible",
+                      "value": "false",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    }
+                  ]
+                },
+                "set": "ramPicker",
+                "index": 1
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "ramPicker.quantity",
+                "uniqueName": "ramPicker-1001-ramPicker.quantity",
+                "value": 0,
+                "step": 1,
+                "set": "ramPicker",
+                "index": 1
+              },
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "ramPicker.imageUrl",
+                "uniqueName": "ramPicker-1001-ramPicker.imageUrl",
+                "value": "",
+                "set": "ramPicker",
+                "index": 1
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "false",
+                "variableName": "ramPicker.storage",
+                "uniqueName": "ramPicker-1001-ramPicker.storage",
+                "value": 0,
+                "set": "ramPicker",
+                "index": 1
+              }
+            ],
+            "label": "16GB RAM Module",
+            "state": "visible",
+            "value": "RAM16GB",
+            "imageUrl": "https://i.imgur.com/WkXo98I.png",
+            "orderNumber": 20,
+            "productDetails": {
+              "price": 125,
+              "name": "RAM 16GB"
+            }
+          },
+          {
+            "index": 2,
+            "fields": [
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "false",
+                "variableName": "ramPicker.value",
+                "uniqueName": "ramPicker-1002-ramPicker.value",
+                "value": "RAM32GB",
+                "set": "ramPicker",
+                "index": 2
+              },
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "ramPicker.interface",
+                "uniqueName": "ramPicker-1002-ramPicker.interface",
+                "value": "DDR5",
+                "optionSet": {
+                  "selectedOptions": [
+                    {
+                      "label": "DDR5",
+                      "state": "visible",
+                      "value": "DDR5",
+                      "imageUrl": null,
+                      "orderNumber": 20
+                    }
+                  ],
+                  "options": [
+                    {
+                      "label": "DDR4",
+                      "state": "visible",
+                      "value": "DDR4",
+                      "imageUrl": null,
+                      "orderNumber": 10
+                    },
+                    {
+                      "label": "DDR5",
+                      "state": "visible",
+                      "value": "DDR5",
+                      "imageUrl": null,
+                      "orderNumber": 20
+                    }
+                  ]
+                },
+                "set": "ramPicker",
+                "index": 2
+              },
+              {
+                "userEdited": false,
+                "dataType": "boolean",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "ramPicker.select",
+                "uniqueName": "ramPicker-1002-ramPicker.select",
+                "value": false,
+                "optionSet": {
+                  "options": [
+                    {
+                      "label": "true",
+                      "state": "visible",
+                      "value": "true",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    },
+                    {
+                      "label": "false",
+                      "state": "visible",
+                      "value": "false",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    }
+                  ]
+                },
+                "set": "ramPicker",
+                "index": 2
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "ramPicker.quantity",
+                "uniqueName": "ramPicker-1002-ramPicker.quantity",
+                "value": 0,
+                "step": 1,
+                "set": "ramPicker",
+                "index": 2
+              },
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "ramPicker.imageUrl",
+                "uniqueName": "ramPicker-1002-ramPicker.imageUrl",
+                "value": "",
+                "set": "ramPicker",
+                "index": 2
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "false",
+                "variableName": "ramPicker.storage",
+                "uniqueName": "ramPicker-1002-ramPicker.storage",
+                "value": 0,
+                "set": "ramPicker",
+                "index": 2
+              }
+            ],
+            "label": "32GB RAM Module",
+            "state": "visible",
+            "value": "RAM32GB",
+            "imageUrl": "https://i.imgur.com/WkXo98I.png",
+            "orderNumber": 30,
+            "productDetails": {
+              "price": 175,
+              "name": "RAM 32GB"
+            }
+          }
+        ],
+        "pageable": "INSTANCE",
+        "totalPages": 1,
+        "totalElements": 3,
+        "last": true,
+        "size": 3,
+        "number": 0,
+        "sort": {
+          "empty": true,
+          "sorted": false,
+          "unsorted": true
+        },
+        "numberOfElements": 3,
+        "first": true,
+        "empty": false
+      }
+    },
+    {
+      "userEdited": false,
+      "dataType": "array",
+      "visibilityState": "visible",
+      "editable": "true",
+      "variableName": "drivePicker",
+      "uniqueName": "drivePicker",
+      "value": [],
+      "optionSet": {
+        "options": [
+          {
+            "label": "SSD128",
+            "state": "visible",
+            "value": "SSD128",
+            "imageUrl": null,
+            "orderNumber": 10
+          },
+          {
+            "label": "SSD256",
+            "state": "visible",
+            "value": "SSD256",
+            "imageUrl": null,
+            "orderNumber": 20
+          },
+          {
+            "label": "SSD512",
+            "state": "visible",
+            "value": "SSD512",
+            "imageUrl": null,
+            "orderNumber": 30
+          }
+        ]
+      },
+      "selectAll": "NONE",
+      "rows": {
+        "content": [
+          {
+            "index": 0,
+            "fields": [
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "false",
+                "variableName": "drivePicker.value",
+                "uniqueName": "drivePicker-1000-drivePicker.value",
+                "value": "SSD128",
+                "set": "drivePicker",
+                "index": 0
+              },
+              {
+                "userEdited": false,
+                "dataType": "boolean",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "drivePicker.select",
+                "uniqueName": "drivePicker-1000-drivePicker.select",
+                "value": false,
+                "optionSet": {
+                  "options": [
+                    {
+                      "label": "true",
+                      "state": "visible",
+                      "value": "true",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    },
+                    {
+                      "label": "false",
+                      "state": "visible",
+                      "value": "false",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    }
+                  ]
+                },
+                "set": "drivePicker",
+                "index": 0
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "drivePicker.quantity",
+                "uniqueName": "drivePicker-1000-drivePicker.quantity",
+                "value": 0,
+                "set": "drivePicker",
+                "index": 0
+              },
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "drivePicker.interface",
+                "uniqueName": "drivePicker-1000-drivePicker.interface",
+                "value": "NVMe",
+                "optionSet": {
+                  "selectedOptions": [
+                    {
+                      "label": "NVMe",
+                      "state": "visible",
+                      "value": "NVMe",
+                      "imageUrl": null,
+                      "orderNumber": 10
+                    }
+                  ],
+                  "options": [
+                    {
+                      "label": "NVMe",
+                      "state": "visible",
+                      "value": "NVMe",
+                      "imageUrl": null,
+                      "orderNumber": 10
+                    },
+                    {
+                      "label": "SSD",
+                      "state": "visible",
+                      "value": "SSD",
+                      "imageUrl": null,
+                      "orderNumber": 20
+                    }
+                  ]
+                },
+                "set": "drivePicker",
+                "index": 0
+              }
+            ],
+            "label": "SSD128",
+            "state": "visible",
+            "value": "SSD128",
+            "imageUrl": null,
+            "orderNumber": 10,
+            "productDetails": {
+              "price": 89,
+              "name": "NVMe Drive 128GB",
+              "description": "Lightning fast Storage for all your computing needs"
+            }
+          },
+          {
+            "index": 1,
+            "fields": [
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "false",
+                "variableName": "drivePicker.value",
+                "uniqueName": "drivePicker-1001-drivePicker.value",
+                "value": "SSD256",
+                "set": "drivePicker",
+                "index": 1
+              },
+              {
+                "userEdited": false,
+                "dataType": "boolean",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "drivePicker.select",
+                "uniqueName": "drivePicker-1001-drivePicker.select",
+                "value": false,
+                "optionSet": {
+                  "options": [
+                    {
+                      "label": "true",
+                      "state": "visible",
+                      "value": "true",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    },
+                    {
+                      "label": "false",
+                      "state": "visible",
+                      "value": "false",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    }
+                  ]
+                },
+                "set": "drivePicker",
+                "index": 1
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "drivePicker.quantity",
+                "uniqueName": "drivePicker-1001-drivePicker.quantity",
+                "value": 0,
+                "set": "drivePicker",
+                "index": 1
+              },
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "drivePicker.interface",
+                "uniqueName": "drivePicker-1001-drivePicker.interface",
+                "value": "SSD",
+                "optionSet": {
+                  "selectedOptions": [
+                    {
+                      "label": "SSD",
+                      "state": "visible",
+                      "value": "SSD",
+                      "imageUrl": null,
+                      "orderNumber": 20
+                    }
+                  ],
+                  "options": [
+                    {
+                      "label": "NVMe",
+                      "state": "visible",
+                      "value": "NVMe",
+                      "imageUrl": null,
+                      "orderNumber": 10
+                    },
+                    {
+                      "label": "SSD",
+                      "state": "visible",
+                      "value": "SSD",
+                      "imageUrl": null,
+                      "orderNumber": 20
+                    }
+                  ]
+                },
+                "set": "drivePicker",
+                "index": 1
+              }
+            ],
+            "label": "SSD256",
+            "state": "visible",
+            "value": "SSD256",
+            "imageUrl": null,
+            "orderNumber": 20,
+            "productDetails": {
+              "price": 75,
+              "name": "SSD 256GB",
+              "description": "A balance of speed and capacity"
+            }
+          },
+          {
+            "index": 2,
+            "fields": [
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "false",
+                "variableName": "drivePicker.value",
+                "uniqueName": "drivePicker-1002-drivePicker.value",
+                "value": "SSD512",
+                "set": "drivePicker",
+                "index": 2
+              },
+              {
+                "userEdited": false,
+                "dataType": "boolean",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "drivePicker.select",
+                "uniqueName": "drivePicker-1002-drivePicker.select",
+                "value": false,
+                "optionSet": {
+                  "options": [
+                    {
+                      "label": "true",
+                      "state": "visible",
+                      "value": "true",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    },
+                    {
+                      "label": "false",
+                      "state": "visible",
+                      "value": "false",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    }
+                  ]
+                },
+                "set": "drivePicker",
+                "index": 2
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "drivePicker.quantity",
+                "uniqueName": "drivePicker-1002-drivePicker.quantity",
+                "value": 0,
+                "set": "drivePicker",
+                "index": 2
+              },
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "drivePicker.interface",
+                "uniqueName": "drivePicker-1002-drivePicker.interface",
+                "value": "SSD",
+                "optionSet": {
+                  "selectedOptions": [
+                    {
+                      "label": "SSD",
+                      "state": "visible",
+                      "value": "SSD",
+                      "imageUrl": null,
+                      "orderNumber": 20
+                    }
+                  ],
+                  "options": [
+                    {
+                      "label": "NVMe",
+                      "state": "visible",
+                      "value": "NVMe",
+                      "imageUrl": null,
+                      "orderNumber": 10
+                    },
+                    {
+                      "label": "SSD",
+                      "state": "visible",
+                      "value": "SSD",
+                      "imageUrl": null,
+                      "orderNumber": 20
+                    }
+                  ]
+                },
+                "set": "drivePicker",
+                "index": 2
+              }
+            ],
+            "label": "SSD512",
+            "state": "visible",
+            "value": "SSD512",
+            "imageUrl": null,
+            "orderNumber": 30,
+            "productDetails": {
+              "price": 150,
+              "name": "SSD 512GB",
+              "description": "Bulk SSD Storage for large files"
+            }
+          }
+        ],
+        "pageable": "INSTANCE",
+        "totalPages": 1,
+        "totalElements": 3,
+        "last": true,
+        "size": 3,
+        "number": 0,
+        "sort": {
+          "empty": true,
+          "sorted": false,
+          "unsorted": true
+        },
+        "numberOfElements": 3,
+        "first": true,
+        "empty": false
+      }
+    },
+    {
+      "userEdited": false,
+      "dataType": "text",
+      "visibilityState": "visible",
+      "editable": "true",
+      "variableName": "cpuPicker",
+      "uniqueName": "cpuPicker",
+      "value": "",
+      "optionSet": {
+        "options": [
+          {
+            "label": "Dual Core Processor",
+            "state": "visible",
+            "value": "CPU16GHZI5",
+            "imageUrl": "https://i.imgur.com/ftft5Nx.png",
+            "orderNumber": 10
+          },
+          {
+            "label": "Quad Core Processor",
+            "state": "visible",
+            "value": "CPU22GHZI7",
+            "imageUrl": "https://i.imgur.com/ftft5Nx.png",
+            "orderNumber": 20
+          },
+          {
+            "label": "6-Core Processor",
+            "state": "visible",
+            "value": "CPU28GHZI7",
+            "imageUrl": "https://i.imgur.com/0xQH6mZ.png",
+            "orderNumber": 30
+          },
+          {
+            "label": "8-Core Processor",
+            "state": "visible",
+            "value": "CPU7320GHZRYZ3",
+            "imageUrl": "https://i.imgur.com/0xQH6mZ.png",
+            "orderNumber": 40
+          },
+          {
+            "label": "12-Core Processor",
+            "state": "visible",
+            "value": "CPU7550GHZRYZ5",
+            "imageUrl": "https://i.imgur.com/LaQVZma.png",
+            "orderNumber": 50
+          }
+        ]
+      },
+      "rows": {
+        "content": [
+          {
+            "index": 0,
+            "fields": [
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "false",
+                "variableName": "cpuPicker.value",
+                "uniqueName": "cpuPicker-1000-cpuPicker.value",
+                "value": "CPU16GHZI5",
+                "set": "cpuPicker",
+                "index": 0
+              },
+              {
+                "userEdited": false,
+                "dataType": "boolean",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.select",
+                "uniqueName": "cpuPicker-1000-cpuPicker.select",
+                "value": false,
+                "optionSet": {
+                  "options": [
+                    {
+                      "label": "true",
+                      "state": "visible",
+                      "value": "true",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    },
+                    {
+                      "label": "false",
+                      "state": "visible",
+                      "value": "false",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    }
+                  ]
+                },
+                "set": "cpuPicker",
+                "index": 0
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.quantity",
+                "uniqueName": "cpuPicker-1000-cpuPicker.quantity",
+                "value": 0,
+                "step": 1,
+                "set": "cpuPicker",
+                "index": 0
+              },
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.imageUrl",
+                "uniqueName": "cpuPicker-1000-cpuPicker.imageUrl",
+                "value": "",
+                "set": "cpuPicker",
+                "index": 0
+              },
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.description",
+                "uniqueName": "cpuPicker-1000-cpuPicker.description",
+                "value": "Processor for light computing",
+                "set": "cpuPicker",
+                "index": 0
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.price",
+                "uniqueName": "cpuPicker-1000-cpuPicker.price",
+                "value": 100,
+                "set": "cpuPicker",
+                "index": 0
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.watts",
+                "uniqueName": "cpuPicker-1000-cpuPicker.watts",
+                "value": 75,
+                "set": "cpuPicker",
+                "index": 0
+              }
+            ],
+            "label": "Dual Core Processor",
+            "state": "visible",
+            "value": "CPU16GHZI5",
+            "imageUrl": "https://i.imgur.com/ftft5Nx.png",
+            "orderNumber": 10,
+            "productDetails": {
+              "name": "CPU 1.6GHz i5"
+            }
+          },
+          {
+            "index": 1,
+            "fields": [
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "false",
+                "variableName": "cpuPicker.value",
+                "uniqueName": "cpuPicker-1001-cpuPicker.value",
+                "value": "CPU22GHZI7",
+                "set": "cpuPicker",
+                "index": 1
+              },
+              {
+                "userEdited": false,
+                "dataType": "boolean",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.select",
+                "uniqueName": "cpuPicker-1001-cpuPicker.select",
+                "value": false,
+                "optionSet": {
+                  "options": [
+                    {
+                      "label": "true",
+                      "state": "visible",
+                      "value": "true",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    },
+                    {
+                      "label": "false",
+                      "state": "visible",
+                      "value": "false",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    }
+                  ]
+                },
+                "set": "cpuPicker",
+                "index": 1
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.quantity",
+                "uniqueName": "cpuPicker-1001-cpuPicker.quantity",
+                "value": 0,
+                "step": 1,
+                "set": "cpuPicker",
+                "index": 1
+              },
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.imageUrl",
+                "uniqueName": "cpuPicker-1001-cpuPicker.imageUrl",
+                "value": "",
+                "set": "cpuPicker",
+                "index": 1
+              },
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.description",
+                "uniqueName": "cpuPicker-1001-cpuPicker.description",
+                "value": "Processor for light computing and office work",
+                "set": "cpuPicker",
+                "index": 1
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.price",
+                "uniqueName": "cpuPicker-1001-cpuPicker.price",
+                "value": 125,
+                "set": "cpuPicker",
+                "index": 1
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.watts",
+                "uniqueName": "cpuPicker-1001-cpuPicker.watts",
+                "value": 100,
+                "set": "cpuPicker",
+                "index": 1
+              }
+            ],
+            "label": "Quad Core Processor",
+            "state": "visible",
+            "value": "CPU22GHZI7",
+            "imageUrl": "https://i.imgur.com/ftft5Nx.png",
+            "orderNumber": 20,
+            "productDetails": {
+              "name": "CPU 2.2GHz i7"
+            }
+          },
+          {
+            "index": 2,
+            "fields": [
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "false",
+                "variableName": "cpuPicker.value",
+                "uniqueName": "cpuPicker-1002-cpuPicker.value",
+                "value": "CPU28GHZI7",
+                "set": "cpuPicker",
+                "index": 2
+              },
+              {
+                "userEdited": false,
+                "dataType": "boolean",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.select",
+                "uniqueName": "cpuPicker-1002-cpuPicker.select",
+                "value": false,
+                "optionSet": {
+                  "options": [
+                    {
+                      "label": "true",
+                      "state": "visible",
+                      "value": "true",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    },
+                    {
+                      "label": "false",
+                      "state": "visible",
+                      "value": "false",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    }
+                  ]
+                },
+                "set": "cpuPicker",
+                "index": 2
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.quantity",
+                "uniqueName": "cpuPicker-1002-cpuPicker.quantity",
+                "value": 0,
+                "step": 1,
+                "set": "cpuPicker",
+                "index": 2
+              },
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.imageUrl",
+                "uniqueName": "cpuPicker-1002-cpuPicker.imageUrl",
+                "value": "",
+                "set": "cpuPicker",
+                "index": 2
+              },
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.description",
+                "uniqueName": "cpuPicker-1002-cpuPicker.description",
+                "value": "Perfect for moderate computing tasks",
+                "set": "cpuPicker",
+                "index": 2
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.price",
+                "uniqueName": "cpuPicker-1002-cpuPicker.price",
+                "value": 175,
+                "set": "cpuPicker",
+                "index": 2
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.watts",
+                "uniqueName": "cpuPicker-1002-cpuPicker.watts",
+                "value": 125,
+                "set": "cpuPicker",
+                "index": 2
+              }
+            ],
+            "label": "6-Core Processor",
+            "state": "visible",
+            "value": "CPU28GHZI7",
+            "imageUrl": "https://i.imgur.com/0xQH6mZ.png",
+            "orderNumber": 30,
+            "productDetails": {
+              "name": "CPU 2.8GHz i7"
+            }
+          },
+          {
+            "index": 3,
+            "fields": [
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "false",
+                "variableName": "cpuPicker.value",
+                "uniqueName": "cpuPicker-1003-cpuPicker.value",
+                "value": "CPU7320GHZRYZ3",
+                "set": "cpuPicker",
+                "index": 3
+              },
+              {
+                "userEdited": false,
+                "dataType": "boolean",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.select",
+                "uniqueName": "cpuPicker-1003-cpuPicker.select",
+                "value": false,
+                "optionSet": {
+                  "options": [
+                    {
+                      "label": "true",
+                      "state": "visible",
+                      "value": "true",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    },
+                    {
+                      "label": "false",
+                      "state": "visible",
+                      "value": "false",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    }
+                  ]
+                },
+                "set": "cpuPicker",
+                "index": 3
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.quantity",
+                "uniqueName": "cpuPicker-1003-cpuPicker.quantity",
+                "value": 0,
+                "step": 1,
+                "set": "cpuPicker",
+                "index": 3
+              },
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.imageUrl",
+                "uniqueName": "cpuPicker-1003-cpuPicker.imageUrl",
+                "value": "",
+                "set": "cpuPicker",
+                "index": 3
+              },
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.description",
+                "uniqueName": "cpuPicker-1003-cpuPicker.description",
+                "value": "Great 3D and Video editing capabilities",
+                "set": "cpuPicker",
+                "index": 3
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.price",
+                "uniqueName": "cpuPicker-1003-cpuPicker.price",
+                "value": 225,
+                "set": "cpuPicker",
+                "index": 3
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.watts",
+                "uniqueName": "cpuPicker-1003-cpuPicker.watts",
+                "value": 150,
+                "set": "cpuPicker",
+                "index": 3
+              }
+            ],
+            "label": "8-Core Processor",
+            "state": "visible",
+            "value": "CPU7320GHZRYZ3",
+            "imageUrl": "https://i.imgur.com/0xQH6mZ.png",
+            "orderNumber": 40,
+            "productDetails": {
+              "name": "AMD Ryzen 3 7320U"
+            }
+          },
+          {
+            "index": 4,
+            "fields": [
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "false",
+                "variableName": "cpuPicker.value",
+                "uniqueName": "cpuPicker-1004-cpuPicker.value",
+                "value": "CPU7550GHZRYZ5",
+                "set": "cpuPicker",
+                "index": 4
+              },
+              {
+                "userEdited": false,
+                "dataType": "boolean",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.select",
+                "uniqueName": "cpuPicker-1004-cpuPicker.select",
+                "value": false,
+                "optionSet": {
+                  "options": [
+                    {
+                      "label": "true",
+                      "state": "visible",
+                      "value": "true",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    },
+                    {
+                      "label": "false",
+                      "state": "visible",
+                      "value": "false",
+                      "imageUrl": null,
+                      "orderNumber": null
+                    }
+                  ]
+                },
+                "set": "cpuPicker",
+                "index": 4
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.quantity",
+                "uniqueName": "cpuPicker-1004-cpuPicker.quantity",
+                "value": 0,
+                "step": 1,
+                "set": "cpuPicker",
+                "index": 4
+              },
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.imageUrl",
+                "uniqueName": "cpuPicker-1004-cpuPicker.imageUrl",
+                "value": "",
+                "set": "cpuPicker",
+                "index": 4
+              },
+              {
+                "userEdited": false,
+                "dataType": "text",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.description",
+                "uniqueName": "cpuPicker-1004-cpuPicker.description",
+                "value": "Top of the line processor for AI, number crunching and cryptography",
+                "set": "cpuPicker",
+                "index": 4
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.price",
+                "uniqueName": "cpuPicker-1004-cpuPicker.price",
+                "value": 325,
+                "set": "cpuPicker",
+                "index": 4
+              },
+              {
+                "userEdited": false,
+                "dataType": "number",
+                "visibilityState": "visible",
+                "editable": "true",
+                "variableName": "cpuPicker.watts",
+                "uniqueName": "cpuPicker-1004-cpuPicker.watts",
+                "value": 225,
+                "set": "cpuPicker",
+                "index": 4
+              }
+            ],
+            "label": "12-Core Processor",
+            "state": "visible",
+            "value": "CPU7550GHZRYZ5",
+            "imageUrl": "https://i.imgur.com/LaQVZma.png",
+            "orderNumber": 50,
+            "productDetails": {
+              "name": "AMD Ryzen 5 7550U"
+            }
+          }
+        ],
+        "pageable": "INSTANCE",
+        "totalPages": 1,
+        "totalElements": 5,
+        "last": true,
+        "size": 5,
+        "number": 0,
+        "sort": {
+          "empty": true,
+          "sorted": false,
+          "unsorted": true
+        },
+        "numberOfElements": 5,
+        "first": true,
+        "empty": false
+      }
+    },
+    {
+      "userEdited": false,
+      "dataType": "set",
+      "visibilityState": "visible",
+      "editable": "true",
+      "variableName": "delta",
+      "uniqueName": "delta",
+      "rows": {
+        "content": [],
+        "pageable": "INSTANCE",
+        "totalPages": 1,
+        "totalElements": 0,
+        "last": true,
+        "size": 0,
+        "number": 0,
+        "sort": {
+          "empty": true,
+          "sorted": false,
+          "unsorted": true
+        },
+        "numberOfElements": 0,
+        "first": true,
+        "empty": true
+      }
+    },
+    {
+      "userEdited": false,
+      "dataType": "number",
+      "visibilityState": "visible",
+      "editable": "false",
+      "variableName": "ramPicker.aggregates.storage_sum",
+      "uniqueName": "ramPicker.aggregates.storage_sum",
+      "value": 0
+    },
+    {
+      "userEdited": false,
+      "dataType": "text",
+      "visibilityState": "visible",
+      "editable": "true",
+      "variableName": "sys.productDescription",
+      "uniqueName": "sys.productDescription",
+      "value": ""
+    },
+    {
+      "userEdited": false,
+      "dataType": "text",
+      "visibilityState": "visible",
+      "editable": "true",
+      "variableName": "sys.productUOM",
+      "uniqueName": "sys.productUOM",
+      "value": ""
+    },
+    {
+      "userEdited": false,
+      "dataType": "number",
+      "visibilityState": "visible",
+      "editable": "true",
+      "variableName": "sys.productPrice",
+      "uniqueName": "sys.productPrice",
+      "value": 0
+    },
+    {
+      "userEdited": false,
+      "dataType": "text",
+      "visibilityState": "visible",
+      "editable": "true",
+      "variableName": "sys.productId",
+      "uniqueName": "sys.productId",
+      "value": "SWC"
+    },
+    {
+      "userEdited": false,
+      "dataType": "text",
+      "visibilityState": "visible",
+      "editable": "true",
+      "variableName": "sys.actionContext",
+      "uniqueName": "sys.actionContext",
+      "value": ""
+    },
+    {
+      "userEdited": false,
+      "dataType": "number",
+      "visibilityState": "visible",
+      "editable": "true",
+      "variableName": "set.delta.size",
+      "uniqueName": "set.delta.size",
+      "value": []
+    },
+    {
+      "userEdited": false,
+      "dataType": "number",
+      "visibilityState": "visible",
+      "editable": "false",
+      "variableName": "set.delta.priceSum",
+      "uniqueName": "set.delta.priceSum",
+      "value": 0
+    },
+    {
+      "userEdited": false,
+      "dataType": "text",
+      "visibilityState": "visible",
+      "editable": "true",
+      "variableName": "sys.productName",
+      "uniqueName": "sys.productName",
+      "value": "Laptop Configurator"
+    },
+    {
+      "userEdited": false,
+      "dataType": "number",
+      "visibilityState": "visible",
+      "editable": "false",
+      "variableName": "cpuPicker.aggregates.watts_sum",
+      "uniqueName": "cpuPicker.aggregates.watts_sum",
+      "value": 0
+    },
+    {
+      "userEdited": false,
+      "dataType": "number",
+      "visibilityState": "visible",
+      "editable": "false",
+      "variableName": "ramPicker.aggregates.value_count",
+      "uniqueName": "ramPicker.aggregates.value_count",
+      "value": 0
+    },
+    {
+      "userEdited": false,
+      "dataType": "text",
+      "visibilityState": "visible",
+      "editable": "true",
+      "variableName": "pleExtension",
+      "uniqueName": "pleExtension",
+      "value": "SSM",
+      "optionSet": {
+        "selectedOptions": [
+          {
+            "label": "Single",
+            "state": "visible",
+            "value": "SSM",
+            "imageUrl": null,
+            "orderNumber": 10
+          }
+        ],
+        "options": [
+          {
+            "label": "Single",
+            "state": "visible",
+            "value": "SSM",
+            "imageUrl": null,
+            "orderNumber": 10
+          },
+          {
+            "label": "Dual",
+            "state": "visible",
+            "value": "DSM",
+            "imageUrl": null,
+            "orderNumber": 20
+          }
+        ]
+      }
+    },
+    {
+      "userEdited": false,
+      "dataType": "text",
+      "visibilityState": "visible",
+      "editable": "true",
+      "variableName": "partner.quote.currencyIsoCode",
+      "uniqueName": "partner.quote.currencyIsoCode",
+      "value": "USD"
+    },
+    {
+      "userEdited": false,
+      "dataType": "text",
+      "visibilityState": "visible",
+      "editable": "true",
+      "variableName": "sys.productFamily",
+      "uniqueName": "sys.productFamily",
+      "value": "Software"
+    },
+    {
+      "userEdited": false,
+      "dataType": "text",
+      "visibilityState": "visible",
+      "editable": "true",
+      "variableName": "partner.quote.lineId",
+      "uniqueName": "partner.quote.lineId",
+      "value": ""
+    },
+    {
+      "userEdited": false,
+      "dataType": "text",
+      "visibilityState": "visible",
+      "editable": "true",
+      "variableName": "sys.currentDate",
+      "uniqueName": "sys.currentDate",
+      "value": "2023-09-29"
+    },
+    {
+      "userEdited": false,
+      "dataType": "text",
+      "visibilityState": "visible",
+      "editable": "true",
+      "variableName": "cPUType",
+      "uniqueName": "cPUType",
+      "value": "All",
+      "optionSet": {
+        "selectedOptions": [
+          {
+            "label": "All",
+            "state": "visible",
+            "value": "All",
+            "imageUrl": null,
+            "orderNumber": 5
+          }
+        ],
+        "options": [
+          {
+            "label": "All",
+            "state": "visible",
+            "value": "All",
+            "imageUrl": null,
+            "orderNumber": 5
+          },
+          {
+            "label": "Low",
+            "state": "visible",
+            "value": "Low",
+            "imageUrl": null,
+            "orderNumber": 7
+          },
+          {
+            "label": "Mid",
+            "state": "visible",
+            "value": "Mid",
+            "imageUrl": null,
+            "orderNumber": 8
+          },
+          {
+            "label": "High",
+            "state": "visible",
+            "value": "High",
+            "imageUrl": null,
+            "orderNumber": 9
+          }
+        ]
+      }
+    },
+    {
+      "userEdited": false,
+      "dataType": "text",
+      "visibilityState": "visible",
+      "editable": "true",
+      "variableName": "preconfigured",
+      "uniqueName": "preconfigured",
+      "value": "",
+      "optionSet": {
+        "options": [
+          {
+            "label": "Basic Office",
+            "state": "visible",
+            "value": "Basic",
+            "imageUrl": null,
+            "orderNumber": 10
+          },
+          {
+            "label": "Video and 3D",
+            "state": "visible",
+            "value": "3D",
+            "imageUrl": null,
+            "orderNumber": 20
+          },
+          {
+            "label": "Enthusiast",
+            "state": "visible",
+            "value": "Max",
+            "imageUrl": null,
+            "orderNumber": 30
+          }
+        ]
+      }
+    },
+    {
+      "userEdited": false,
+      "dataType": "text",
+      "visibilityState": "visible",
+      "editable": "true",
+      "variableName": "sys.productCode",
+      "uniqueName": "sys.productCode",
+      "value": "SWC"
+    },
+    {
+      "userEdited": false,
+      "dataType": "text",
+      "visibilityState": "visible",
+      "editable": "true",
+      "variableName": "partner.quote.pricebookId",
+      "uniqueName": "partner.quote.pricebookId",
+      "value": ""
+    },
+    {
+      "userEdited": false,
+      "dataType": "text",
+      "visibilityState": "visible",
+      "editable": "true",
+      "variableName": "partner.quote.id",
+      "uniqueName": "partner.quote.id",
+      "value": ""
+    }
+  ],
+  "uuid": "ad947503-5246-461f-8603-f0124593ae1c",
+  "revision": 0,
+  "relatedChanges": [
+    {
+      "key": "drivePicker",
+      "type": "PRODUCT_PICKER"
+    },
+    {
+      "key": "ramPicker",
+      "type": "PRODUCT_PICKER"
+    },
+    {
+      "key": "cpuPicker",
+      "type": "PRODUCT_PICKER"
+    },
+    {
+      "key": "delta",
+      "type": "SET"
+    },
+    {
+      "key": "products",
+      "type": "PRODUCT"
+    }
+  ],
+  "valid": true,
+  "messages": [],
+  "productChange": true,
+  "products": [
+    {
+      "id": "SSM",
+      "quantity": 1,
+      "bomType": "Sales",
+      "price": 125,
+      "uniqueIdentifier": "motherboard",
+      "orderNumber": 10,
+      "type": "accessory",
+      "name": "Single Motherboard",
+      "partnerId": "01t6e000009gRTpAAM",
+      "productCode": "SSM",
+      "externalId": "",
+      "productFamily": "",
+      "description": "",
+      "uom": "",
+      "extPrice": 125,
+      "level": 0,
+      "rollUpPrice": 125
+    }
+  ],
+  "showValidationButton": false,
+  "total": 125,
+  "layouts": [
+    {
+      "url": "/blueprints/8/revisions/LATEST/layouts/1",
+      "label": "basic",
+      "variableName": "pickerGeneral_basic"
+    }
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|fields|[object]|false|none|none|
+|» userEdited|boolean|false|none|none|
+|» dataType|string|false|none|none|
+|» visibilityState|string|false|none|none|
+|» editable|string|false|none|none|
+|» variableName|string|false|none|none|
+|» uniqueName|string|false|none|none|
+|» value|any|false|none|none|
+
+anyOf
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|»» *anonymous*|string|false|none|none|
+
+or
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|»» *anonymous*|number|false|none|none|
+
+or
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|»» *anonymous*|boolean|false|none|none|
+
+or
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|»» *anonymous*|[string]|false|none|none|
+
+continued
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» optionSet|object|false|none|none|
+|»» options|[object]|true|none|none|
+|»»» label|string|false|none|none|
+|»»» state|string|false|none|none|
+|»»» value|string|false|none|none|
+|»»» imageUrl|string|false|none|none|
+|»»» orderNumber|number|false|none|none|
+|» selectAll|string|false|none|none|
+|» rows|object|false|none|none|
+|»» content|[object]|true|none|none|
+|»»» index|number|false|none|none|
+|»»» fields|[object]|false|none|none|
+|»»»» userEdited|boolean|false|none|none|
+|»»»» dataType|string|false|none|none|
+|»»»» visibilityState|string|false|none|none|
+|»»»» editable|string|false|none|none|
+|»»»» variableName|string|false|none|none|
+|»»»» uniqueName|string|false|none|none|
+|»»»» value|string|false|none|none|
+|»»»» set|string|false|none|none|
+|»»»» index|number|false|none|none|
+|»»» label|string|false|none|none|
+|»»» state|string|false|none|none|
+|»»» value|string|false|none|none|
+|»»» imageUrl|string|false|none|none|
+|»»» orderNumber|number|false|none|none|
+|»»» productDetails|object|false|none|none|
+|»»»» price|number|true|none|none|
+|»»»» name|string|true|none|none|
+|»» pageable|string|true|none|none|
+|»» last|boolean|true|none|none|
+|»» totalPages|number|true|none|none|
+|»» totalElements|number|true|none|none|
+|»» size|number|true|none|none|
+|»» number|number|true|none|none|
+|»» sort|object|true|none|none|
+|»»» empty|boolean|true|none|none|
+|»»» sorted|boolean|true|none|none|
+|»»» unsorted|boolean|true|none|none|
+|»» numberOfElements|number|true|none|none|
+|»» first|boolean|true|none|none|
+|»» empty|boolean|true|none|none|
+|uuid|string|false|none|none|
+|revision|number|false|none|none|
+|relatedChanges|[object]|false|none|none|
+|» key|string|false|none|none|
+|» type|string|false|none|none|
+|valid|boolean|false|none|none|
+|messages|[[Message](#schemamessage)]|false|none|none|
+|productChange|boolean|false|none|none|
+|products|[[Product](#schemaproduct)]|false|none|none|
+|showValidationButton|boolean|false|none|none|
+|layouts|[object]|false|none|none|
+|» url|string|false|none|none|
+|» label|string|false|none|none|
+|» variableName|string|false|none|none|
+
+<h2 id="tocS_BOMResponse">BOMResponse</h2>
+<!-- backwards compatibility -->
+<a id="schemabomresponse"></a>
+<a id="schema_BOMResponse"></a>
+<a id="tocSbomresponse"></a>
+<a id="tocsbomresponse"></a>
+
+```json
+{
+  "products": [
+    {
+      "id": "string",
+      "selectionType": "string",
+      "quantity": 0,
+      "bomType": "string",
+      "level": 0,
+      "parentProduct": 0,
+      "notes": "string",
+      "uniqueIdentifier": 0,
+      "description": "string",
+      "externalId": "string",
+      "name": "string",
+      "price": 0,
+      "extPrice": 0,
+      "extended": {
+        "additionalProperties": "string"
+      }
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "empty": true,
+      "sorted": true,
+      "unsorted": true
+    },
+    "offset": 0,
+    "pageNumber": 0,
+    "pageSize": 0,
+    "paged": true,
+    "unpaged": true
+  },
+  "totalPages": 0,
+  "totalElements": 0,
+  "last": true,
+  "size": 0,
+  "number": 0,
+  "numberOfElements": 0,
+  "first": true,
+  "empty": true,
+  "total": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|products|[[Product](#schemaproduct)]|false|none|none|
+|pageable|object|false|none|none|
+|» sort|object|false|none|none|
+|»» empty|boolean|false|none|none|
+|»» sorted|boolean|false|none|none|
+|»» unsorted|boolean|false|none|none|
+|» offset|integer|false|none|none|
+|» pageNumber|integer|false|none|none|
+|» pageSize|integer|false|none|none|
+|» paged|boolean|false|none|none|
+|» unpaged|boolean|false|none|none|
+|totalPages|integer|false|none|none|
+|totalElements|integer|false|none|none|
+|last|boolean|false|none|none|
+|size|integer|false|none|none|
+|number|integer|false|none|none|
+|numberOfElements|integer|false|none|none|
+|first|boolean|false|none|none|
+|empty|boolean|false|none|none|
+|total|integer|false|none|none|
+
+<h2 id="tocS_Product">Product</h2>
+<!-- backwards compatibility -->
+<a id="schemaproduct"></a>
+<a id="schema_Product"></a>
+<a id="tocSproduct"></a>
+<a id="tocsproduct"></a>
+
+```json
+{
+  "id": "string",
+  "selectionType": "string",
+  "quantity": 0,
+  "bomType": "string",
+  "level": 0,
+  "parentProduct": 0,
+  "notes": "string",
+  "uniqueIdentifier": 0,
+  "description": "string",
+  "externalId": "string",
+  "name": "string",
+  "price": 0,
+  "extPrice": 0,
+  "extended": {
+    "additionalProperties": "string"
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|id|string|false|none|none|
+|selectionType|string|false|none|none|
+|quantity|integer|false|none|none|
+|bomType|string|false|none|none|
+|level|integer|false|none|none|
+|parentProduct|integer|false|none|none|
+|notes|string|false|none|none|
+|uniqueIdentifier|integer|false|none|none|
+|description|string|false|none|none|
+|externalId|string|false|none|none|
+|name|string|false|none|none|
+|price|number|false|none|none|
+|extPrice|number|false|none|none|
+|extended|object|false|none|none|
+|» additionalProperties|string|false|none|none|
